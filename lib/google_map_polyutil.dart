@@ -1,6 +1,5 @@
 import 'package:google_map_polyutil/gmp.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:meta/meta.dart';
 
 /// A helper class regarding Google map native android utility class "PolyUtil".
 /// For brief documentation from native class goto
@@ -17,14 +16,14 @@ class GoogleMapPolyUtil {
   /// otherwise.
   ///
   static Future<bool> containsLocation(
-          {@required LatLng point,
-          @required List<LatLng> polygon,
+          {required LatLng point,
+          required List<LatLng> polygon,
           bool geodesic = true}) =>
       GMP.containsLocation(point, polygon, geodesic);
 
   /// Decodes an encoded path string into a sequence of LatLngs.
   ///
-  static Future<List<LatLng>> decode({@required String encodedPath}) =>
+  static Future<List<LatLng>> decode({required String encodedPath}) =>
       GMP.decode(encodedPath);
 
   /// Computes the distance on the sphere between the point p
@@ -35,14 +34,14 @@ class GoogleMapPolyUtil {
   /// * _[end]_ - the end of the line segment.
   ///
   static Future<double> distanceToLine(
-          {@required LatLng point,
-          @required LatLng start,
-          @required LatLng end}) =>
+          {required LatLng point,
+          required LatLng start,
+          required LatLng end}) =>
       GMP.distanceToLine(point, start, end);
 
   /// Encodes a sequence of LatLngs into an encoded path string.
   ///
-  static Future<String> encode({@required List<LatLng> path}) =>
+  static Future<String> encode({required List<LatLng> path}) =>
       GMP.encode(path);
 
   /// Returns true if the provided list of points is a closed polygon
@@ -50,7 +49,7 @@ class GoogleMapPolyUtil {
   /// ### Parameters:
   /// * _[poly]_ -  polyline or polygon.
   ///
-  static Future<bool> isClosedPolygon({@required List<LatLng> poly}) =>
+  static Future<bool> isClosedPolygon({required List<LatLng> poly}) =>
       GMP.isClosedPolygon(poly);
 
   /// Computes whether the given point lies on or near the edge of a polygon,
@@ -60,8 +59,8 @@ class GoogleMapPolyUtil {
   /// between the first point and the last point is included.
   ///
   static Future<bool> isLocationOnEdge(
-          {@required LatLng point,
-          List<LatLng> polygon,
+          {required LatLng point,
+          required List<LatLng> polygon,
           bool geodesic = true,
           double tolerance = 100}) =>
       GMP.isLocationOnEdge(point, polygon, geodesic, tolerance);
@@ -73,8 +72,8 @@ class GoogleMapPolyUtil {
   /// point is not included.
   ///
   static Future<bool> isLocationOnPath(
-          {@required LatLng point,
-          List<LatLng> polygon,
+          {required LatLng point,
+          required List<LatLng> polygon,
           bool geodesic = true,
           double tolerance = 200}) =>
       GMP.isLocationOnPath(point, polygon, geodesic, tolerance);
@@ -94,6 +93,6 @@ class GoogleMapPolyUtil {
   /// points in the simplified poly.
   ///
   static Future<List<LatLng>> simplify(
-          {@required List<LatLng> poly, @required double tolerance}) =>
+          {required List<LatLng> poly, required double tolerance}) =>
       GMP.simplify(poly, tolerance);
 }
